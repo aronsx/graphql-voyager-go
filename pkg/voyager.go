@@ -14,12 +14,16 @@ var htmlTemplate string
 //go:embed html/voyager.css
 var css string
 
+//go:embed html/voyager.standalone.js
+var js string
+
 type voyagerOptions struct {
-	Protocol string
-	Endpoint string
-	Host     string
-	Headers  string
-	CSS      string
+	Protocol  string
+	Endpoint  string
+	Host      string
+	Headers   string
+	CSS       string
+	VoyagerJS string
 }
 
 func init() {
@@ -37,11 +41,12 @@ func init() {
 //	http.Handle("/voyager", voyagerHandler)
 func NewVoyagerHandler(endpoint string) http.Handler {
 	v := voyagerOptions{
-		Endpoint: endpoint,
-		Headers:  "{'Accept': 'application/json', 'Content-Type': 'application/json'}",
-		Host:     "window.location.host",
-		Protocol: "window.location.protocol",
-		CSS:      css,
+		Endpoint:  endpoint,
+		Headers:   "{'Accept': 'application/json', 'Content-Type': 'application/json'}",
+		Host:      "window.location.host",
+		Protocol:  "window.location.protocol",
+		CSS:       css,
+		VoyagerJS: js,
 	}
 	return v
 }
