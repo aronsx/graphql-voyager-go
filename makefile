@@ -13,5 +13,5 @@ install_tools:
 	go install honnef.co/go/tools/cmd/staticcheck@latest
 	go install golang.org/x/lint/golint@latest
 
-run_server:
+run:
 	go run ./cmd/server
