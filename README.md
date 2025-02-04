@@ -29,5 +29,5 @@ make test
 
 # Run the Server 
 # Navigate to http://localhost:8080/voyager
-make run_server
+make run
 ```
